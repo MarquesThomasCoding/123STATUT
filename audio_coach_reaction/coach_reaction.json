@@ -1,0 +1,134 @@
+{
+    "end_game_congratulations": {
+        "common_grade=10":[
+            "champ",
+            "no_secrets",
+            "perfect_score",
+            "flawless_bravo",
+            "beat_the_odds",
+            "little_genius"
+        ],
+        "common_grade5<10":[
+            "what_a_game",
+            "practice_makes_perfect",
+            "little_more_practice",
+            "give_your_best",
+            "great_time"
+        ],
+        "common_grade0<5":[
+            "nice_job",
+            "reach_your_goals",
+            "practice_makes_perfect",
+            "great_time",
+            "one_more_time",
+            "right_track",
+            "dont_give_up_score",
+            "learn_by_trying",
+            "have_fun",
+            "progress_in_no_time",
+            "stay_positive",
+            "mistakes_learning",
+            "better_results",
+            "proud_of_you"
+        ],
+        "common":[],
+        "common_break_time": [
+            "until_the_end",
+            "congrats_be_proud_1",
+            "congrats_be_proud_2",
+            "talented",
+            "whaou"
+        ],
+        "common_break_time_if_show_button_sound": [],
+        "animal_mime": [
+            "jungle_king",
+            "zoo"
+        ],
+        "yoga": [
+            "good_effort",
+            "sportive"
+        ],
+        "balance": [
+            "good_effort",
+            "sportive"
+        ],
+        "follow_music": [
+            "good_effort",
+            "sportive",
+            "dance_beautiful",
+            "dance_well_done",
+            "dance_whaou"
+        ],
+        "spring": [
+            "good_effort",
+            "sportive"
+        ],
+        "coco_said": [
+            "good_effort",
+            "sportive",
+            "dance_beautiful",
+            "dance_well_done",
+            "dance_whaou"
+        ],
+        "dancing_music": [
+            "good_effort",
+            "sportive",
+            "dance_beautiful",
+            "dance_well_done",
+            "dance_whaou"
+        ]
+    },
+    "in_game_encouragement": {
+        "common": [],
+        "common_break_time": [],
+        "common_break_time_if_show_button_sound": [
+            "bravo_1",
+            "bravo_2",
+            "bravo_3",
+            "great_1",
+            "great_2",
+            "great_3",
+            "impressive",
+            "next",
+            "super_1",
+            "super_2",
+            "well_done_1"
+        ],
+        "animal_mime": [
+            "that_is_miming",
+            "my_miming"
+        ],
+        "emotion_mime": [
+            "actor",
+            "that_is_miming",
+            "tear"
+        ],
+        "yoga": [
+            "relax",
+            "balance",
+            "namaste",
+            "breath_deeply",
+            "think_breathing_1",
+            "think_breathing_2"
+        ],
+        "balance": [
+            "stay_strong",
+            "effort_1",
+            "effort_2",
+            "potential_champion",
+            "dont_give_up"
+        ],
+        "follow_music": [
+            "beautiful_statue_1",
+            "beautiful_statue_2",
+            "careful_stop_moving_1",
+            "careful_stop_moving_2",
+            "careful_stop_moving_3",
+            "keep_position",
+            "must_not_move",
+            "saw_you_move",
+            "stop_moving",
+            "you_move"
+        ]
+    }
+}

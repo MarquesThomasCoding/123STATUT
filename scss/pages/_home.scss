@@ -1,0 +1,8 @@
+.home {
+    display: grid;
+    grid-template-areas: 'consignes next_step';
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    height: 100%;
+    width: 100%;
+    font-size: 1.25rem;
+}
