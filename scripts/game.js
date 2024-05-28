@@ -192,7 +192,7 @@ const returnToDance = () => {
 //? Fonctions de jeu
 
 const getGame = () => {
-    const remainingTime = parseInt(localStorage.getItem('remainingTime')) || 20;
+    const remainingTime = parseInt(localStorage.getItem('remainingTime')) || 60;
 
     overlaysContainer.style.display = "none";
     pauseGameOverlay.style.display = "none";
