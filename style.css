@@ -17,6 +17,10 @@ a {
   font-size: inherit;
 }
 
+.hidden {
+  display: none;
+}
+
 .btn {
   background-color: var(--yellow-dark);
   padding: 10px 40px;

@@ -1,7 +1,8 @@
 let playing = false;
 const audio = new Audio('/audios/instruction_follow_music.mp3');
+const playMusicBtn = document.querySelector("#play-btn");
 
-const playConsignes = () => {
+const playConsignes = (btn) => {
     if (!playing) {
         audio.play();
         playing = true;
@@ -17,3 +18,9 @@ const playConsignes = () => {
         playing = false;
     }, audio.duration * 1000);
 }
+
+playMusicBtn.addEventListener("click", () => {
+    playConsignes();
+    playMusicBtn.querySelector(".fi-sr-play").classList.toggle("hidden");
+    playMusicBtn.querySelector(".fi-sr-pause").classList.toggle("hidden");
+});
