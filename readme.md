@@ -30,9 +30,9 @@ Pour lancer le jeu, il suffit de cliquer sur le bouton en haut à droite de la p
 Les images de Coco présentes sur l'application originale n'ayant pas été fournies, elles sont absentes de cette version, de même que l'audio "1, 2, 3, Statue !" joué avant l'arrêt de la musique normalement.
 
 ```
-A noter : Sur certains navigateurs, l'audio ne se lance pas après avoir cliqué sur le bouton de lancement du jeu à cause des restrictions de lecture automatique des médias (exemple : Safari). En effet, ces navigateurs exigent une interaction utilisateur sur la page même pour lancer l'audio.
+A noter : Sur certains navigateurs, l'audio ne se lance pas après avoir cliqué sur le bouton de lancement du jeu à cause des restrictions de lecture automatique des médias (exemple : Safari).
 
-Le jeu fonctionne néanmoins correctement sur les navigateurs comme Chrome, qui ne demandent qu'une interaction utilisateur sur le site pour lancer l'audio.
+Le jeu fonctionne néanmoins correctement sur les navigateurs comme Chrome, Opéra, Firefox ou Edge.
 ```
 
 ## Technologies utilisées
