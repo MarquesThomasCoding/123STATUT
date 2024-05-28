@@ -24,7 +24,7 @@ const fetchJson = (url) => fetch(url).then(response => response.json());
 const getRandomDuration = () => {return Math.floor(Math.random() * (6000 - 3000) + 3000)};
 
 // Fonction pour sauvegarder le temps joué
-const saveTimePlayed = (time) => localStorage.setItem('timePlayed', JSON.stringify({time: parseInt(time), date: Date.now()}) + getTimePlayed());
+const saveTimePlayed = (time) => localStorage.setItem('timePlayed', getTimePlayed() + JSON.stringify({time: parseInt(time), date: Date.now()}));
 // Fonction pour obtenir le temps joué
 const getTimePlayed = () => localStorage.getItem('timePlayed') || JSON.stringify({time: 0, date: Date.now()});
 // Fonction pour obtenir le temps total joué
@@ -67,7 +67,7 @@ const getTimePlayedPerDay = () => {
         return acc;
     }, {});
 
-    const tableStats = document.querySelector(".results-table tbody");
+    const tableStats = document.querySelector("#results-table");
 
     Object.entries(data).forEach(([date, time]) => {
         const newRow = document.createElement("tr");

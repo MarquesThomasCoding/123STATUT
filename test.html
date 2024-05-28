@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="overlays">
+        <section class="overlay overlay-results">
+            <div>
+                <p>Bien joué !</p>
+                <div class="stats">
+                    Cela fait déjà <span id="game-time">00 m 00 s</span> que tu es actif
+                </div>
+                <table class="results-table hidden">
+                    <tr>
+                        <th><i class="fi fi-sr-calendar"></i></th>
+                        <th><i class="fi fi-sr-clock-two"></i></th>
+                    </tr>
+                    <tr>
+                        <td>2021-06-01</td>
+                        <td>00 m 00 s</td>
+                    </tr>
+                    <tr>
+                        <td>2021-06-02</td>
+                        <td>00 m 00 s</td>
+                    </tr>
+                </table>
+                <div class="btns-container">
+                    <button onclick="startGame()" class="btn">Rejouer</button>
+                    <a href="/index.html" class="btn">Quitter</a>
+                </div>
+            </div>
+            <aside class="results-navigation">
+                <div><button class="btn btn-stat show-result active"><img src="/imgs/results.png" alt="Voir les résultats"></button>Mon résultat</div>
+                <div><button class="btn btn-stat show-score"><img src="/imgs/score.png" alt="Voir le score"></button>Mon score</div>
+            </aside>
+        </section>
+    </section>
+
+    <script src="/scripts/changeStats.js"></script>
+</body>
+</html>

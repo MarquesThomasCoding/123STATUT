@@ -16,6 +16,8 @@ const playConsignes = (btn) => {
     }
     setTimeout(() => {
         playing = false;
+        playMusicBtn.querySelector(".fi-sr-play").classList.remove("hidden");
+        playMusicBtn.querySelector(".fi-sr-pause").classList.add("hidden");
     }, audio.duration * 1000);
 }
 

@@ -1,0 +1,30 @@
+.results-table {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: var(--white);
+    border: 3px solid var(--yellow-dark);
+    border-radius: 30px;
+    padding-inline: 40px;
+
+    tbody {
+        display: grid;
+    }
+
+    i {
+        font-size: 2.5rem;
+        color: var(--yellow);
+    }
+
+    tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+
+        &:nth-child(2) {
+            background-color: var(--yellow);
+        }
+    }
+}
