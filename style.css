@@ -21,6 +21,11 @@ a {
   display: none !important;
 }
 
+@media screen and (max-width: 1120px) {
+  * {
+    font-size: 1rem;
+  }
+}
 .btn {
   background-color: var(--yellow-dark);
   padding: 10px 40px;
@@ -29,6 +34,11 @@ a {
   font-size: 1.5rem;
   cursor: pointer;
   color: white;
+}
+@media screen and (max-width: 1120px) {
+  .btn .btn {
+    font-size: 1rem;
+  }
 }
 .btn-icon {
   display: flex;
@@ -170,7 +180,7 @@ a {
 .instructions {
   grid-area: consignes;
   background-color: var(--yellow-dark);
-  padding: 80px 60px 20px 80px;
+  padding: 50px 40px 20px 60px;
 }
 .instructions .book {
   position: relative;
