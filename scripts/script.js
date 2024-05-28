@@ -1,24 +1,24 @@
 let playing = false;
-const audio = new Audio('/audios/instruction_follow_music.mp3');
+const audioConsignes = new Audio('/audios/instruction_follow_music.mp3');
 const playMusicBtn = document.querySelector("#play-btn");
 
 const playConsignes = (btn) => {
     if (!playing) {
-        audio.play();
+        audioConsignes.play();
         playing = true;
     } else {
-        if (audio.paused) {
-            audio.play();
+        if (audioConsignes.paused) {
+            audioConsignes.play();
         }
         else {
-            audio.pause();
+            audioConsignes.pause();
         }
     }
     setTimeout(() => {
         playing = false;
         playMusicBtn.querySelector(".fi-sr-play").classList.remove("hidden");
         playMusicBtn.querySelector(".fi-sr-pause").classList.add("hidden");
-    }, audio.duration * 1000);
+    }, audioConsignes.duration * 1000);
 }
 
 playMusicBtn.addEventListener("click", () => {

@@ -6,6 +6,8 @@ const coco_dances = ["dancing_coco_1.gif", "dancing_coco_2.gif"];
 let audio, danceTimeout, statueTimeout, progressBarInterval;
 const totalTime = 60;
 
+const homeSection = document.querySelector(".home-section");
+const gameSection = document.querySelector(".game-section");
 const coco = document.querySelector("#coco");
 const overlaysContainer = document.querySelector(".overlays");
 const pauseGameOverlay = document.querySelector(".overlay-pause");
@@ -207,6 +209,9 @@ const getGame = () => {
 }
 
 const startGame = () => {
+    setCurrentPhase("dance");
+    homeSection.classList.add("hidden");
+    gameSection.classList.remove("hidden");
     playMusic();
     getGame();
 };
@@ -246,9 +251,6 @@ const quitGame = () => {
     clearRemainingTime();
     clearCurrentPhase();
     saveTimePlayed(totalTime - getRemainingTime());
-    window.location.href = "/";
+    homeSection.classList.remove("hidden");
+    gameSection.classList.add("hidden");
 }
-
-//? Start the game
-setCurrentPhase("dance");
-startGame();

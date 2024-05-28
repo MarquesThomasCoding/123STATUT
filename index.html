@@ -7,41 +7,91 @@
     <title>123 Statue !</title>
 </head>
 <body>
-    <header>
-        <button id="play-btn" class="btn btn-icon" aria-label="Play Consignes">
-            <i class="fi fi-sr-play"></i>
-            <i class="fi fi-sr-pause hidden"></i>
-        </button>
-    </header>
-
-    <main class="home">
-        <section class="instructions">
-            <div class="book">
-                <p>Ecoute la musique et danse !<br><br>Quand la musique s'arrête, fais ta plus belle statue.</p>
-                </p>
-                <div class="book-bars">
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
-                    <span class="book-bar"></span>
+    <div class="home-section">
+        <header>
+            <button id="play-btn" class="btn btn-icon" aria-label="Play Consignes">
+                <i class="fi fi-sr-play"></i>
+                <i class="fi fi-sr-pause hidden"></i>
+            </button>
+        </header>
+        <main class="home">
+            <section class="instructions">
+                <div class="book">
+                    <p>Ecoute la musique et danse !<br><br>Quand la musique s'arrête, fais ta plus belle statue.</p>
+                    </p>
+                    <div class="book-bars">
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                        <span class="book-bar"></span>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <section class="navigation">
+                <button onclick="startGame()" class="btn">Suite</a>
+            </section>
+        </main>
+    </div>
 
-        <section class="navigation">
-            <a href="/game.html" class="btn">Suite</a>
-        </section>
-    </main>
+    <div class="game-section hidden">
+        <header>
+            <button onclick="pauseGame()" class="btn btn-icon" aria-label="Pause">
+                <i class="fi fi-sr-cross"></i>
+            </button>
+        </header>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <main class="main-content">
+            <section class="overlays">
+                <section class="overlay overlay-results">
+                    <div>
+                        <p>Bien joué !</p>
+                        <div class="stats">
+                            Cela fait déjà <span id="game-time">00 m 00 s</span> que tu es actif
+                        </div>
+                        <table class="results-table hidden">
+                            <tr>
+                                <th><i class="fi fi-sr-calendar"></i></th>
+                                <th><i class="fi fi-sr-clock-two"></i></th>
+                            </tr>
+                        </table>
+                        <div class="btns-container">
+                            <button onclick="startGame()" class="btn">Rejouer</button>
+                            <a href="/index.html" class="btn">Quitter</a>
+                        </div>
+                    </div>
+                    <aside class="results-navigation">
+                        <div><button class="btn btn-stat show-result active"><img src="/imgs/results.png" alt="Voir les résultats"></button>Mon résultat</div>
+                        <div><button class="btn btn-stat show-score"><img src="/imgs/score.png" alt="Voir le score"></button>Mon score</div>
+                    </aside>
+                </section>
+                <section class="overlay overlay-pause">
+                    <p>Veux-tu quitter le jeu ?</p>
+                    <div class="btns-container">
+                        <button onclick="resumeGame()" class="btn">Rester</button>
+                        <button onclick="quitGame()" class="btn">Quitter</button>
+                    </div>
+                </section>
+            </section>
+            <section class="coco-area">
+                <img src="./imgs/dancing_coco_2.gif" alt="Coco dancing !" id="coco">
+            </section>
+        </main>
+    </div>
+
+    <script src="/scripts/changeStats.js"></script>
+    <script src="/scripts/game.js"></script>
 
     <script src="/scripts/script.js"></script>
 </body>

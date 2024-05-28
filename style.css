@@ -249,6 +249,14 @@ a {
   font-size: 1.25rem;
 }
 
+.home-section {
+  height: 100%;
+}
+
+.game-section {
+  height: 100%;
+}
+
 * {
   --yellow: #ffeda3;
   --yellow-dark: #ffe05d;
