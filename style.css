@@ -26,6 +26,12 @@ a {
     font-size: 1rem;
   }
 }
+* {
+  --yellow: #ffeda3;
+  --yellow-dark: #ffe05d;
+  --white: #ffffff;
+}
+
 .btn {
   background-color: var(--yellow-dark);
   padding: 10px 40px;
@@ -42,8 +48,10 @@ a {
 }
 .btn-icon {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+  gap: 0;
   position: fixed;
   top: 0;
   right: 0;
@@ -75,8 +83,10 @@ a {
 
 .btns-container {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  gap: 0;
   align-self: flex-end;
   width: 100%;
   margin-block: 10px;
@@ -138,14 +148,15 @@ a {
 }
 .overlay-results > div .stats {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   background-color: var(--yellow);
   border: 1px solid var(--yellow-dark);
   border-radius: 30px;
   height: 100%;
   width: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
 }
 .overlay-results > p {
   font-weight: bold;
@@ -162,8 +173,9 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100%;
   align-items: center;
+  gap: 0;
+  height: 100%;
   background-color: var(--yellow-dark);
   border-start-end-radius: 30px;
   border-end-end-radius: 30px;
@@ -172,8 +184,9 @@ a {
 .results-navigation > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 0;
   color: var(--white);
 }
 
@@ -198,6 +211,8 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: flex-start;
+  gap: 0;
 }
 .instructions .book-bar {
   background-color: var(--yellow);
@@ -255,12 +270,6 @@ a {
 
 .game-section {
   height: 100%;
-}
-
-* {
-  --yellow: #ffeda3;
-  --yellow-dark: #ffe05d;
-  --white: #ffffff;
 }
 
 /*# sourceMappingURL=style.css.map */

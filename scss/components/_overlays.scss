@@ -34,15 +34,12 @@
             place-items: center;
 
             .stats {
-                display: flex;
+                @include flexbox(row, center, center, .5rem);
                 background-color: var(--yellow);
                 border: 1px solid var(--yellow-dark);
                 border-radius: 30px;
                 height: 100%;
                 width: 100%;
-                align-items: center;
-                justify-content: center;
-                gap: .5rem;
             }
         }
 
@@ -61,21 +58,15 @@
 }
 
 .results-navigation {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    @include flexbox(column, center, space-around);
     height: 100%;
-    align-items: center;
     background-color: var(--yellow-dark);
     border-start-end-radius: 30px;
     border-end-end-radius: 30px;
     padding: 20px;
 
     > div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        @include flexbox(column, center, center);
         color: var(--white);
     }
 }

@@ -14,9 +14,7 @@
     }
 
     &-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flexbox(row, center, center);
         position: fixed;
         top: 0;
         right: 0;
@@ -51,9 +49,7 @@
 }
 
 .btns-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    @include flexbox(row, center, space-around);
     align-self: flex-end;
     width: 100%;
     margin-block: 10px;

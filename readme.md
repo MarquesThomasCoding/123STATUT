@@ -37,8 +37,10 @@ Le jeu fonctionne néanmoins correctement sur les navigateurs comme Chrome, Opé
 
 ## Technologies utilisées
 
+Utilisation des langages web natifs, avec le pré-processeur SASS pour le CSS.
+
 ![](https://skillicons.dev/icons?i=html)
-![](https://skillicons.dev/icons?i=css)
+![](https://skillicons.dev/icons?i=sass)
 ![](https://skillicons.dev/icons?i=javascript)
 
 ## Auteur
