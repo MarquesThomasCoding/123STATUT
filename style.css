@@ -227,6 +227,9 @@ a {
   display: grid;
   place-items: center;
 }
+.navigation .game-icon {
+  width: 250px;
+}
 
 .results-table {
   display: grid;

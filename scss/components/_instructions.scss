@@ -35,4 +35,8 @@
     background-color: var(--yellow);
     display: grid;
     place-items: center;
+
+    .game-icon {
+        width: 250px;
+    }
 }

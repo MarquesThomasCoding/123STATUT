@@ -1,9 +1,10 @@
 //? Variables
 
 const musics = ["dancing_music_1.mp3", "dancing_music_2.mp3", "dancing_music_3.mp3"];
-const coco_dances = ["dancing_coco_1.gif", "dancing_coco_2.gif"];
+const cocoDances = ["dancing_coco_1.gif", "dancing_coco_2.gif"];
+const statueSounds = ["statue_sound_1.mp3", "statue_sound_2.mp3", "statue_sound_3.mp3", "statue_sound_4.mp3", "statue_sound_5.mp3", "statue_sound_6.mp3"];
 
-let audio, danceTimeout, statueTimeout, progressBarInterval;
+let audio, audioStatueSound, audioReaction, danceTimeout, statueTimeout, changeStatueTimeout, progressBarInterval;
 const totalTime = 60;
 
 const homeSection = document.querySelector(".home-section");
@@ -19,7 +20,7 @@ const progressBar = document.querySelector("#progress-bar");
 
 const fetchJson = (url) => fetch(url).then(response => response.json());
 
-const getRandomDuration = () => {return Math.floor(Math.random() * (6000 - 3000) + 3000)};
+const getRandomDuration = () => {return Math.floor(Math.random() * (8000 - 5000) + 5000)};
 
 const saveTimePlayed = (time) => localStorage.setItem('timePlayed', JSON.stringify({time: parseInt(time), date: Date.now()}) + getTimePlayed());
 
@@ -101,6 +102,7 @@ const clearAll = () => {
     clearInterval(progressBarInterval);
     clearTimeout(danceTimeout);
     clearTimeout(statueTimeout);
+    clearTimeout(changeStatueTimeout);
 }
 
 
@@ -110,8 +112,18 @@ const getCurrentPhase = () => localStorage.getItem('currentPhase') || "dance";
 
 const clearCurrentPhase = () => localStorage.removeItem('currentPhase');
 
+const setUIDance = () => {
+    coco.src = '/imgs/'+cocoDances[Math.floor(Math.random() * cocoDances.length)];
+    document.querySelector(".coco-area").style.backgroundColor = "var(--yellow)";
+}
 
-//? Fonctions pour la musique
+const setUIStatue = () => {
+    coco.src = "/imgs/coco_statue.png";
+    document.querySelector(".coco-area").style.backgroundColor = "lightgray";
+}
+
+
+//? Fonctions pour l'audio
 
 const setMusic = () => {
     audio = new Audio('/audios/'+musics[Math.floor(Math.random() * musics.length)]);
@@ -127,6 +139,17 @@ const stopMusic = () => {
     audio.currentTime = 0;
 };
 
+const stopAudios = () => {
+    if (audioStatueSound) {
+        audioStatueSound.pause();
+        audioStatueSound.currentTime = 0;
+    }
+    if (audioReaction) {
+        audioReaction.pause();
+        audioReaction.currentTime = 0;
+    }
+}
+
 
 //? Fonction pour les encouragements
 
@@ -139,11 +162,16 @@ const getRandomReaction = (phase) => {
         );
         const randomReaction = allReactions[Math.floor(Math.random() * allReactions.length)];
         if (randomReaction) {
-            const audioReaction = new Audio(`/audio_coach_reaction/${randomReaction}.mp3`);
+            audioReaction = new Audio(`/audio_coach_reaction/${randomReaction}.mp3`);
             audioReaction.play();
         }
     });
 };
+
+const getRandomStatueSound = () => {
+    audioStatueSound = new Audio('/audios/'+statueSounds[Math.floor(Math.random() * statueSounds.length)]);
+    audioStatueSound.play();
+}
 
 
 //? Fonction pour la barre de progression
@@ -172,18 +200,19 @@ const updateProgressBar = (remainingTime) => {
 
 const changeToStatue = () => {
     setCurrentPhase("statue");
-    coco.src = "/imgs/coco_statue.png";
-    document.querySelector(".coco-area").style.backgroundColor = "lightgray";
-    stopMusic();
-    getRandomReaction("statue");
+    getRandomStatueSound();
+    changeStatueTimeout = setTimeout(() => {
+        setUIStatue();
+        stopMusic();
+        getRandomReaction("statue");
+    }, 3000);
 };
 
 const returnToDance = () => {
     setCurrentPhase("dance");
     getRandomReaction("dance");
-    coco.src = '/imgs/'+coco_dances[Math.floor(Math.random() * coco_dances.length)];
+    setUIDance();
     playMusic();
-    document.querySelector(".coco-area").style.backgroundColor = "var(--yellow)";
     danceTimeout = setTimeout(() => {
         changeToStatue();
         statueTimeout = setTimeout(returnToDance, getRandomDuration());
@@ -193,8 +222,8 @@ const returnToDance = () => {
 
 //? Fonctions de jeu
 
-const getGame = () => {
-    const remainingTime = parseInt(localStorage.getItem('remainingTime')) || 60;
+const resumeGame = () => {
+    const remainingTime = parseInt(localStorage.getItem('remainingTime')) || totalTime;
 
     overlaysContainer.style.display = "none";
     pauseGameOverlay.style.display = "none";
@@ -202,24 +231,38 @@ const getGame = () => {
 
     updateProgressBar(remainingTime);
 
-    danceTimeout = setTimeout(() => {
-        changeToStatue();
+    if(getCurrentPhase() === "dance") {
+        playMusic();
+        danceTimeout = setTimeout(() => {
+            changeToStatue();
+            statueTimeout = setTimeout(returnToDance, getRandomDuration());
+        }, getRandomDuration());
+    }
+    else {
+        setUIStatue();
         statueTimeout = setTimeout(returnToDance, getRandomDuration());
-    }, getRandomDuration());
+    }
 }
 
 const startGame = () => {
     setCurrentPhase("dance");
     homeSection.classList.add("hidden");
     gameSection.classList.remove("hidden");
-    playMusic();
-    getGame();
+    const remainingTime = parseInt(localStorage.getItem('remainingTime')) || totalTime;
+
+    overlaysContainer.style.display = "none";
+    pauseGameOverlay.style.display = "none";
+    resultsOverlay.style.display = "none";
+
+    updateProgressBar(remainingTime);
+    returnToDance();
 };
 
 const stopGame = () => {
     saveTimePlayed(totalTime);
     clearRemainingTime();
     stopMusic();
+    stopAudios();
     clearAll();
     getRandomReaction("end");
     getTimePlayedPerDay();
@@ -235,17 +278,12 @@ const pauseGame = () => {
     setRemainingTime(getRemainingTime());
     
     stopMusic();
+    stopAudios();
     clearAll();
 
     overlaysContainer.style.display = "grid";
     pauseGameOverlay.style.display = "grid";
 };
-
-const resumeGame = () => {
-    const phase = getCurrentPhase();
-    if(phase === "dance") return startGame();
-    getGame();
-}
 
 const quitGame = () => {
     clearRemainingTime();
