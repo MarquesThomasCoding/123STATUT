@@ -210,9 +210,9 @@ const changeToStatue = () => {
 
 const returnToDance = () => {
     setCurrentPhase("dance");
-    getRandomReaction("dance");
     setUIDance();
     playMusic();
+    getRandomReaction("dance");
     danceTimeout = setTimeout(() => {
         changeToStatue();
         statueTimeout = setTimeout(returnToDance, getRandomDuration());
